@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>CentOS 7安装Docker - 藏璧</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前提条件最新docker依赖新的内核，因此需要CentOS 7以上的系统虚拟机起一个CentOS就好了，CentOS下载地址：CentOS-7-x86_64-Minimal-1503-01.iso
+更新系统1sudo yum update
+添加docker源123456789sudo vi /etc/yum.repos.d/docker.repo### docker repo[dockerrepo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CentOS 7安装Docker">
+<meta property="og:url" content="http://caiqinzhou.github.io/2015/11/09/CentOS-7安装Docker/index.html">
+<meta property="og:site_name" content="藏璧">
+<meta property="og:description" content="前提条件最新docker依赖新的内核，因此需要CentOS 7以上的系统虚拟机起一个CentOS就好了，CentOS下载地址：CentOS-7-x86_64-Minimal-1503-01.iso
+更新系统1sudo yum update
+添加docker源123456789sudo vi /etc/yum.repos.d/docker.repo### docker repo[dockerrepo">
+<meta property="og:updated_time" content="2015-11-09T14:11:00.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CentOS 7安装Docker">
+<meta name="twitter:description" content="前提条件最新docker依赖新的内核，因此需要CentOS 7以上的系统虚拟机起一个CentOS就好了，CentOS下载地址：CentOS-7-x86_64-Minimal-1503-01.iso
+更新系统1sudo yum update
+添加docker源123456789sudo vi /etc/yum.repos.d/docker.repo### docker repo[dockerrepo">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo logo-text" href="/">藏璧</a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/categories">Categories</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        <div id="search-form-wrap">
+          <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://caiqinzhou.github.io"></form>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-CentOS-7安装Docker" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      CentOS 7安装Docker
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2015/11/09/CentOS-7安装Docker/" class="article-date">
+  <time datetime="2015-11-09T13:37:07.000Z" itemprop="datePublished">2015-11-09</time>
+</a>
+      
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提条件">前提条件</h2><p>最新docker依赖新的内核，因此需要CentOS 7以上的系统<br>虚拟机起一个CentOS就好了，CentOS下载地址：<a href="http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1503-01.iso" target="_blank" rel="external">CentOS-7-x86_64-Minimal-1503-01.iso</a></p>
+<h2 id="更新系统">更新系统</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum update</span><br></pre></td></tr></table></figure>
+<h2 id="添加docker源">添加docker源</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/yum.repos.d/docker.repo</span><br><span class="line"></span><br><span class="line"><span class="comment">### docker repo</span></span><br><span class="line">[dockerrepo]</span><br><span class="line">name=Docker Repository</span><br><span class="line">baseurl=https://yum.dockerproject.org/repo/main/centos/<span class="number">7</span></span><br><span class="line">enabled=<span class="number">1</span></span><br><span class="line">gpgcheck=<span class="number">1</span></span><br><span class="line">gpgkey=https://yum.dockerproject.org/gpg</span><br></pre></td></tr></table></figure>
+<h2 id="安装docker-engine">安装docker-engine</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="operator"><span class="keyword">install</span> docker-<span class="keyword">engine</span></span></span><br></pre></td></tr></table></figure>
+<p>也可以使用一键脚本安装<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL http<span class="variable">s:</span>//<span class="built_in">get</span>.docker.<span class="keyword">com</span>/ | <span class="keyword">sh</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="启动docker_daemon服务">启动docker daemon服务</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo service docker <span class="built_in">start</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加到服务，开机启动</span></span><br><span class="line">sudo chkconfig docker <span class="command"><span class="keyword">on</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="启动hello-world程序确认docker安装正常">启动hello-world程序确认docker安装正常</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo docker <span class="command">run</span> hello-world</span><br><span class="line"></span><br><span class="line">docker <span class="command">run</span> -<span class="keyword">it</span> ubuntu bash</span><br></pre></td></tr></table></figure>
+<h2 id="用户组配置">用户组配置</h2><p>为了让所在用户不需要使用sudo运行docker，可以把用户加入到docker组里面<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker <span class="tag">&lt;<span class="title">your_username</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>验证是否不需要sudo了，重新登录账号测试<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="command">run</span> -<span class="keyword">it</span> ubuntu bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文档">参考文档</h2><ul>
+<li><a href="https://docs.docker.com/engine/installation/centos/" target="_blank" rel="external">Installation on CentOS</a></li>
+</ul>
+
+      
+    </div>
+    
+    
+      <footer class="article-footer">
+        
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/09/Docker命令速查手册/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          Docker命令速查手册
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/08/Markdown语法速记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Markdown语法速记&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 caiqinzhou@gmail.com&nbsp;
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
